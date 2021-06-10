@@ -1,2 +1,11 @@
 # stock-manager-api
-Um projeto simples em NodeJS para controle de estoque.
+Uma API simples para controle de estoque feita em NodeJS.
+<br> Bibliotecas usadas até o momento
+> Express (https://expressjs.com/pt-br/)
+ # Requisitos
+ - Node
+ # Setup
+ Acessar a pasta raíz do projeto e executar os seguintes comandos
+ <br>  \> **npm install**
+ <br>  \> **node index.js**
+ 
