@@ -1,2 +1,4 @@
 const server = require('./server.js');
-server.startServer();
+const routes = require('./src/routes/index.js');
+
+server.startServer(routes);
