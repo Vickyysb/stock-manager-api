@@ -6,6 +6,8 @@ Uma API simples para controle de estoque feita em NodeJS.
  # Requisitos
  - Node
  # Setup
+ Criar um schema no banco de dados com o nome **api-manager**
+ <br>
  Acessar a pasta raíz do projeto e executar os seguintes comandos
  <br>  \> **npm install**
  <br>  \> **node index.js**
