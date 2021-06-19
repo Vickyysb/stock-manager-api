@@ -35,6 +35,17 @@ class UserService{
         }
     }
 
+    async getUserByEmail(email){
+        try{
+            var user = await User.findOne({
+                where: { email }
+            });
+            return(user);
+        }catch(err){
+            return ({error: err})
+        }
+    }
+
     async getUsers(){
         try{
             var users = await User.findAll({
@@ -92,4 +103,4 @@ class UserService{
     }
 }
 
-module.exports = UserService
+module.exports = UserService;
