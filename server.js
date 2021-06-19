@@ -16,5 +16,3 @@ function startServer (routes) {
 }
 
 module.exports={ startServer }
-
-

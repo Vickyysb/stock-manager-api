@@ -1,14 +1,22 @@
 const userService = require('../../service/users/userService');
+const bcrypt = require('bcrypt');
 
 class UserController {
     constructor(){
         this.userService = new userService();
     }
 
+    async generatePassword(password){
+        const hash = await bcrypt.hash(password, 10);
+        return await hash;
+    }
+
     async createUser(req, res){
         var { isAdmin, email, password, name } = req.body;
+        const newPassword = await this.generatePassword(password);
+        console.log('newPassword', newPassword)
    
-        await this.userService.createUser(isAdmin, email, password, name).then((response) => {
+        await this.userService.createUser(isAdmin, email, newPassword, name).then((response) => {
             res.send(response);
         })
     }
