@@ -1,5 +1,5 @@
 # stock-manager-api
-Uma API simples para controle de estoque feita em NodeJS.
+Uma API simples para controle de estoque feita em NodeJS com intenção de aprendizado em NodeJS e bibliotecas.
 <br> Bibliotecas usadas até o momento
 > Express (https://expressjs.com/pt-br/) <br>
 > Sequelize (https://sequelize.org/) <br>
