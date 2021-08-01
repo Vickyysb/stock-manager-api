@@ -12,16 +12,17 @@ class UserController {
     }
 
     async createUser(req, res){
-        var { isAdmin, email, password, name } = req.body;
+        var { isAdmin, email, password, name, groupId } = req.body;
         const newPassword = await this.generatePassword(password);
         console.log('newPassword', newPassword)
    
-        await this.userService.createUser(isAdmin, email, newPassword, name).then((response) => {
+        await this.userService.createUser(isAdmin, email, newPassword, name, groupId).then((response) => {
             res.send(response);
         })
     }
 
     async getUser(req, res){
+
         var id = req.params.id;
         console.log(id)
         await this.userService.getUser(id).then((response) => {
@@ -30,7 +31,8 @@ class UserController {
     }
 
     async getUsers(req, res){
-        await this.userService.getUsers().then((response) => {
+        let groupId = req.groupId
+        await this.userService.getUsers(groupId).then((response) => {
             res.send(response);
         });
     }

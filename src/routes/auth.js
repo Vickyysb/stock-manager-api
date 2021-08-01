@@ -25,7 +25,7 @@ class authController {
 
         res.send({
           user,
-          token: this.generateToken({ id: user.id }),
+          token: this.generateToken({ "user": {"id": user.id, "groupId": user.groupId}})
         });
     }
 

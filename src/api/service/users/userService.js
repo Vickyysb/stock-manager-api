@@ -1,8 +1,9 @@
 const User = require('../../model/users/userModel');
+const Group = require('../../model/groups/groupModel');
 
 class UserService{
 
-    async createUser(isAdmin, email, password, name){
+    async createUser(isAdmin, email, password, name, groupId){
         try{
             //verifica se já existe um usuário com o e-mail que esta sendo cadastrado
             let userExists = await User.findOne({where : {email: email}})
@@ -15,7 +16,8 @@ class UserService{
                 isAdmin: isAdmin,
                 email: email,
                 password: password,
-                name: name
+                name: name,
+                groupId: groupId
             })
             return ({message : `Created user ${email}`});
         }catch(err) {
@@ -46,11 +48,12 @@ class UserService{
         }
     }
 
-    async getUsers(){
+    async getUsers(groupId){
         try{
             var users = await User.findAll({
                 where: {
-                    status: 1
+                    status: 1,
+                    groupId: groupId
                 }
             });
             return ({message: users});
